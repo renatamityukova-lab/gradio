@@ -1,0 +1,18 @@
+# Зависимости проекта Gradio-приложения.
+# Установка (из корня проекта, где лежит .venv):
+#   .venv\Scripts\python.exe -m pip install -r gradio\requirements.txt
+
+# UI
+gradio>=6.0
+
+# Gradio тянет numpy/pandas. На этом окружении (Windows, Python 3.11)
+# numpy 2.x падает с ImportError: DLL load failed, поэтому фиксируем ветку 1.x,
+# а pandas — совместимую с numpy 1.x.
+numpy>=1.26,<2
+pandas>=2.0,<2.3
+
+# Клиент LLM API (OpenAI-совместимый chat/completions)
+httpx>=0.27
+
+# Загрузка переменных окружения из .env
+python-dotenv>=1.0
